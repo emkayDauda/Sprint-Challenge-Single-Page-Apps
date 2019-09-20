@@ -11,6 +11,7 @@ import Navigation from './components/Navigation';
 
 export default function App() {
   return (
+    <>
     <main>
       <Header />
       <Navigation />
@@ -19,5 +20,6 @@ export default function App() {
       <LocationList />
       <SearchForm />
     </main>
+    </>
   );
 }

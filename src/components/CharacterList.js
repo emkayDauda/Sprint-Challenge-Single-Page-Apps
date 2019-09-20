@@ -8,6 +8,7 @@ export default function CharacterList() {
 
   const [characters, setCharacters] = useState([])
   const [url, setUrl] = useState('https://rickandmortyapi.com/api/character/')
+  const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
@@ -27,7 +28,7 @@ export default function CharacterList() {
   return (
     <section className="character-list">
       {
-        characters.map(character => <Character character={character}/>)
+        characters.filter(character => character.name.includes(searchTerm)).map(character => <Character character={character}/>)
       }
     </section>
   );
