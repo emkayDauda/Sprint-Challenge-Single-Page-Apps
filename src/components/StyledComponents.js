@@ -35,3 +35,8 @@ export const Name = styled.p`
 font-family: 'Tangerine', serif;
 font-size: 4rem;
 `
+
+export const StyledContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`

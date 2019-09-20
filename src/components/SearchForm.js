@@ -4,7 +4,7 @@ import * as yup from 'yup'
 
 export default function SearchForm({onSubmit}) {
 
-  const initialForm = {name: ""}
+  const initialForm = {name: "", check: false}
   const validationSchema  = yup.object().shape({
     name: yup.string().required("A name is required")
   })
@@ -33,6 +33,11 @@ export default function SearchForm({onSubmit}) {
             Name
             <Field name='name' type='text' placeholder='Enter a name' />
             <ErrorMessage name='name' component='div' />
+          </label>
+          <label>
+            <Field name='check' type='checkbox' placeholder='Enter a name' />
+            <ErrorMessage name='check' component='div' />
+            Search from server
           </label>
           <button type='submit'>Search</button>
         </Form>
