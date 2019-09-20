@@ -2,9 +2,16 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
 import Character from'./CharacterCard';
+import SearchForm from './SearchForm'
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
+
+  function onSubmit(formValues, actions){
+    console.log(formValues);
+    setSearchTerm(formValues.name)
+    actions.resetForm();
+  }
 
   const [characters, setCharacters] = useState([])
   const [url, setUrl] = useState('https://rickandmortyapi.com/api/character/')
@@ -27,8 +34,12 @@ export default function CharacterList() {
 
   return (
     <section className="character-list">
+      <SearchForm onSubmit={onSubmit}/>
+
       {
-        characters.filter(character => character.name.includes(searchTerm)).map(character => <Character character={character}/>)
+        characters
+          .filter(character => character.name.includes(searchTerm))
+          .map(character => <Character key={character.id} character={character}/>)
       }
     </section>
   );
